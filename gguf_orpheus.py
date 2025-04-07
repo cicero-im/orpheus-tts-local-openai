@@ -74,7 +74,7 @@ def generate_tokens_from_api(prompt, api_url_prefix, model_name, voice=DEFAULT_V
     }
 
     # Make the API request with streaming (Keep these as they are)
-    response = requests.post(api_url, headers=HEADERS, json=payload, stream=True)
+    response = requests.post(api_url, headers=HEADERS, json=payload, stream=True, timeout=60)
 
     if response.status_code != 200:
         print(f"Error: API request failed with status code {response.status_code}")
